@@ -8,6 +8,7 @@ import { Message } from "../models/messages/messages.model";
 })
 export class StateService {
   messages$: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>([]);
+  loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {}
 

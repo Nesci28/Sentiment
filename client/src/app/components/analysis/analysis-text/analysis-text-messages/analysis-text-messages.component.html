@@ -1,0 +1,11 @@
+<div>
+  <div *ngFor="let message of messages; let first = first">
+    <div class="card" [ngClass]="first ? 'mt-4' : 'mt-2'">
+      <div class="card-body text-dark bg-secondary d-flex align-items-center">
+        <i *ngIf="message.score < 0" class="far fa-angry fa-3x mr-3"></i>
+        <i *ngIf="message.score > 0" class="far fa-smile fa-3x mr-3"></i>
+        <p class="lead">{{ message.message }}</p>
+      </div>
+    </div>
+  </div>
+</div>

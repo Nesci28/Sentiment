@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Learn-ML</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarColor03"
+    aria-controls="navbarColor03"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <div ngbDropdown class="d-inline-block">
+        <a
+          id="dropdownBasic1"
+          ngbDropdownToggle
+          class="nav-link"
+          [ngClass]="{ active: linkObject[State.analysis] }"
+        >
+          Analyse
+        </a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <a
+            ngbDropdownItem
+            routerLink="/analysis/sentiment"
+            (click)="updateLinkObject(State.analysis)"
+            >Sentiment</a
+          >
+          <a
+            ngbDropdownItem
+            routerLink="/analysis/canvas"
+            (click)="updateLinkObject(State.analysis)"
+            >Canvas</a
+          >
+        </div>
+      </div>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/class"
+          (click)="updateLinkObject(State.class)"
+          [ngClass]="{ active: linkObject[State.c] }"
+          >Classification</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

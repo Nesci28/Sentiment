@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { HttpService } from "../../../service/http.service";
-import { StateService } from "../../../services/state.service";
+import { HttpService } from "../../../../services/http.service";
+import { StateService } from "../../../../services/state.service";
 
 @Component({
-  selector: "app-form",
-  templateUrl: "./form.component.html",
-  styleUrls: ["./form.component.scss"]
+  selector: "app-analysis-text-form",
+  templateUrl: "./analysis-text-form.component.html",
+  styleUrls: ["./analysis-text-form.component.scss"]
 })
-export class FormComponent implements OnInit {
+export class AnalysisTextFormComponent implements OnInit {
   form: FormGroup = new FormGroup({
     text: new FormControl("", Validators.required)
   });
