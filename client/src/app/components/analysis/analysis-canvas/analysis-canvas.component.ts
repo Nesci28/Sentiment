@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 
 import { StateService } from "../../../services/state.service";
 
@@ -11,6 +11,7 @@ declare let ml5: any;
 })
 export class AnalysisCanvasComponent implements OnInit {
   @ViewChild("canvas", { static: false }) canvas: any;
+  results: any[] = [];
 
   classifier: any;
   featureClassifier: any;
@@ -25,9 +26,24 @@ export class AnalysisCanvasComponent implements OnInit {
     });
   }
 
-  startAnalysing(canvas: any): void {
+  reset(): void {
+    const canvas: any = document.querySelector("#defaultCanvas0");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(
+      0,
+      0,
+      document.querySelector("#container").clientWidth - 30,
+      300
+    );
+  }
+
+  startAnalysing(): void {
+    const canvas: any = document.querySelector("#defaultCanvas0");
     this.classifier.classify(canvas, (_: any, res: any[]) => {
-      console.log("res :", res);
+      this.results.unshift(res[0]);
+      const canvas: any = document.querySelector("#defaultCanvas0");
+      canvas.style.top = `${-84 - 108 * 1 - 92 * (this.results.length - 1)}px`;
     });
   }
 }

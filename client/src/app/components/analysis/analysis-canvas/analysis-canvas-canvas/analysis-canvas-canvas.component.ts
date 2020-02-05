@@ -1,6 +1,6 @@
 import "p5/lib/addons/p5.sound";
 
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import * as p5 from "p5";
 
 @Component({
@@ -8,18 +8,20 @@ import * as p5 from "p5";
   templateUrl: "./analysis-canvas-canvas.component.html",
   styleUrls: ["./analysis-canvas-canvas.component.scss"]
 })
-export class AnalysisCanvasCanvasComponent implements OnInit {
-  @Output() startAnalysing = new EventEmitter();
-
+export class AnalysisCanvasCanvasComponent implements OnInit, OnDestroy {
   canvas: any;
 
   constructor() {}
 
   ngOnInit() {
-    const sketch = s => {
+    const sketch = (s: any) => {
       s.setup = () => {
-        s.createCanvas(400, 400);
+        const canvas = s.createCanvas(
+          document.querySelector("#container").clientWidth - 30,
+          300
+        );
         s.background(255);
+        canvas.parent("container");
       };
 
       s.draw = () => {
@@ -29,19 +31,19 @@ export class AnalysisCanvasCanvasComponent implements OnInit {
           s.line(s.pmouseX, s.pmouseY, s.mouseX, s.mouseY);
         }
       };
+
+      s.windowResized = () => {
+        s.resizeCanvas(
+          document.querySelector("#container").clientWidth - 30,
+          300
+        );
+      };
     };
 
     this.canvas = new p5(sketch);
   }
 
-  reset(): void {
-    const canvas: any = document.querySelector("#defaultCanvas0");
-    const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#fff";
-    ctx.fillRect(0, 0, 400, 400);
-  }
-
-  analyse(): void {
-    this.startAnalysing.emit(this.canvas);
+  ngOnDestroy() {
+    this.canvas.remove();
   }
 }

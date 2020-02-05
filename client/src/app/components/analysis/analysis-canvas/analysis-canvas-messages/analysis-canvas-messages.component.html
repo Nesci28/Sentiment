@@ -1,0 +1,19 @@
+<div>
+  <div *ngFor="let result of results; let first = first">
+    <div class="card" [ngClass]="first ? 'mt-4' : 'mt-2'">
+      <div class="card-body text-dark bg-secondary d-flex align-items-center">
+        <i
+          *ngIf="result.confidence * 100 < 50"
+          class="far fa-angry fa-3x mr-3"
+        ></i>
+        <i
+          *ngIf="result.confidence * 100 > 50"
+          class="far fa-smile fa-3x mr-3"
+        ></i>
+        <p class="lead">
+          {{ result.label }} - {{ (result.confidence * 100).toFixed(2) }}%
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

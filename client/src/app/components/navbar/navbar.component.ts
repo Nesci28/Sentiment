@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit {
   State = State;
   linkObject = {
     analysis: false,
-    class: false
+    creation: false
   };
 
   constructor() {}

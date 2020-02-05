@@ -17,7 +17,12 @@ import { AckeeEventTriggerDirective } from "./directives/ackee-event-trigger.dir
 import { FormControlValidatorDirective } from "./directives/form-control-validation.directive";
 import { FormSubmitValidationMsgDirective } from "./directives/form-submit-validation.directive";
 import { AnalysisCanvasComponent } from "./components/analysis/analysis-canvas/analysis-canvas.component";
-import { AnalysisCanvasCanvasComponent } from './components/analysis/analysis-canvas/analysis-canvas-canvas/analysis-canvas-canvas.component';
+import { AnalysisCanvasCanvasComponent } from "./components/analysis/analysis-canvas/analysis-canvas-canvas/analysis-canvas-canvas.component";
+import { AnalysisCanvasMessagesComponent } from "./components/analysis/analysis-canvas/analysis-canvas-messages/analysis-canvas-messages.component";
+import { CreationDotsComponent } from "./components/creation/creation-dots/creation-dots.component";
+import { CreationDotsCanvasComponent } from './components/creation/creation-dots/creation-dots-canvas/creation-dots-canvas.component';
+import { CreationDotsRadiosComponent } from './components/creation/creation-dots/creation-dots-radios/creation-dots-radios.component';
+import { CreationDotsMessagesComponent } from './components/creation/creation-dots/creation-dots-messages/creation-dots-messages.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { AnalysisCanvasCanvasComponent } from './components/analysis/analysis-ca
     AnalysisTextMessagesComponent,
     NavbarComponent,
     AnalysisCanvasComponent,
-    AnalysisCanvasCanvasComponent
+    AnalysisCanvasCanvasComponent,
+    AnalysisCanvasMessagesComponent,
+    CreationDotsComponent,
+    CreationDotsCanvasComponent,
+    CreationDotsRadiosComponent,
+    CreationDotsMessagesComponent
   ],
   imports: [
     BrowserModule,

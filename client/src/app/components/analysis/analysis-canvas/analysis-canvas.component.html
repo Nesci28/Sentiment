@@ -1,5 +1,19 @@
 <h1 class="text-center">Analyse de Canvas</h1>
-<app-analysis-canvas-canvas
-  #canvas
-  (startAnalysing)="startAnalysing($event)"
-></app-analysis-canvas-canvas>
+<app-analysis-canvas-canvas></app-analysis-canvas-canvas>
+<div style="top:270px;" class="position-relative w-100">
+  <div class="position-relative w-100">
+    <button
+      class="btn btn-secondary position-relative"
+      style="top:-273px;left:2px;z-index:2;"
+      (click)="reset()"
+    >
+      Effacer
+    </button>
+    <button class="btn btn-primary btn-lg btn-block" (click)="startAnalysing()">
+      Analyse
+    </button>
+  </div>
+  <app-analysis-canvas-messages
+    [results]="results"
+  ></app-analysis-canvas-messages>
+</div>

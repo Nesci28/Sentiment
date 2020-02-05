@@ -31,8 +31,6 @@ router.post('/getSentiment', (req, res) => {
       error: 'Aucun mot détecté',
     });
   } else {
-    console.log('langCode :', langCode);
-    console.log('result :', result);
     res.json({
       sentiment: result.score,
     });

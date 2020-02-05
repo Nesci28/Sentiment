@@ -15,6 +15,5 @@ export class StateService {
   addMessage(message: string, score: number): void {
     const messages = [...this.messages$.value, { message, score: score }];
     this.messages$.next(messages);
-    console.log("this.messages$.value :", this.messages$.value);
   }
 }

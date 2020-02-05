@@ -1,4 +1,9 @@
 export enum State {
   analysis = "analysis",
-  class = "class"
+  creation = "creation"
+}
+
+export enum NNState {
+  training = "training",
+  prediction = "prediction"
 }

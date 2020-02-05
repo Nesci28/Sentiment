@@ -1,0 +1,21 @@
+<h1 class="text-center">Création d'un Neural Network</h1>
+<app-creation-dots-canvas
+  [letter]="letter"
+  [state]="state"
+  (input)="addInput($event)"
+  (predict)="predict($event)"
+></app-creation-dots-canvas>
+<div style="top:270px;" class="position-relative w-100">
+  <div class="position-relative w-100">
+    <app-creation-dots-radios
+      (changeRadio)="changeRadio($event)"
+      (changeSlide)="changeSlide($event)"
+    ></app-creation-dots-radios>
+    <button class="btn btn-primary btn-lg btn-block" (click)="startAnalysing()">
+      Analyse
+    </button>
+  </div>
+  <app-analysis-canvas-messages
+    [results]="results"
+  ></app-analysis-canvas-messages>
+</div>
